@@ -29,6 +29,16 @@ public class Usuario {
     @Column(name="password")
     private String password;
 
+    @Column(name="administrador")
+    private int administrador;
+
+    public int getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(int administrador) {
+        this.administrador = administrador;
+    }
 
     public String getPassword(){
         return this.password;

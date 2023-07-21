@@ -48,7 +48,7 @@ public class Envio {
     private String nombre_entrega;
     @Column(name="id_usuario")
     private int id_usuario;
-    @Column(name="id_usuario")
+    @Column(name="id_repartidor")
     private int id_repartidor;
     @Column(name="entregado")
     private int entregado;
