@@ -41,7 +41,6 @@ public class UsuarioDaoImp implements UsuarioDao{
         List<Usuario> l = entityManager.createQuery(query).setParameter("email", u.getEmail()).getResultList();
         if(l.isEmpty()){
             return null;}
-
         Argon2 ar = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
         String passHash = l.get(0).getPassword();
         if (ar.verify(passHash, u.getPassword())){

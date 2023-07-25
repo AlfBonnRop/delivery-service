@@ -21,12 +21,12 @@ public class EnvioDaoImp implements EnvioDao {
 
     @Override
     public List<Envio> getEnviosPendientes(){
-        String query = "FROM Envio WHERE entregado = 0";
+        String query = "FROM Envio WHERE entregado = 0 and id_repartidor = 0";
         return entityManager.createQuery(query).getResultList();
     }
     @Override
     public List<Envio> getEnviosPendientes(String id){
-        String query = "FROM Envio WHERE id_usuario = :id AND entregado = 0";
+        String query = "FROM Envio WHERE id_usuario = :id AND entregado = 0 AND id_repartidor != 0";
         return entityManager.createQuery(query).setParameter("id",id).getResultList();
     }
 
@@ -59,7 +59,7 @@ public class EnvioDaoImp implements EnvioDao {
             System.out.println("Error, no existe ningun envio con el id: "+id);
         }else{
             Envio e = l.get(0);
-            e.setEntregado(1);
+            e.setId_repartidor(2);
             entityManager.merge(e);
         }
     }

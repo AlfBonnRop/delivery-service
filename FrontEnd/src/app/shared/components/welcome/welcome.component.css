@@ -1,0 +1,25 @@
+.main-div{
+    width: 100%; 
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+}
+.talk__hour span {
+
+    font-size: 0;
+
+    display: block;
+
+}
+.w1 {
+    font-size: 6em;
+    font-family: 'Sriracha', cursive;
+    text-decoration: none;
+    margin-left: 30px;
+  }
+.w2 {
+    font-size: 3em;
+    font-family: 'Sriracha', cursive;
+    text-decoration: none;
+    margin-left: 30px;
+}

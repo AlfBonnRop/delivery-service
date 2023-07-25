@@ -1,0 +1,157 @@
+<headeri></headeri>
+<form class="form_main" action="">
+    <p class="heading">Regístrate</p>
+    <!-- <div [formGroup]="form">
+        <p style="font-size: large;  margin-left: -5%; margin-top: 20px;">Datos personales:</p> 
+        
+        <button mat-raised-button id="button" color="primary">Iniciar sesión</button>
+    </div> -->
+    <div>
+        <mat-stepper orientation="vertical" linear="true" #stepper>
+            <mat-step color="accent" [stepControl]="personalForm">
+                <form [formGroup]="personalForm">
+                    <ng-template matStepLabel>Información personal</ng-template>
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="nombre">
+                        <div *ngIf="personalForm.get('nombre').invalid && personalForm.get('nombre').touched ">
+                            <mat-error *ngIf="personalForm.get('nombre').errors['required']"> Es necesario ingresar tu
+                                nombre
+                            </mat-error>
+                            <mat-error *ngIf="personalForm.get('nombre').errors['maxlength']"> El nombre no puede
+                                exceder 30
+                                caracteres
+                            </mat-error>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%; ">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput formControlName="apellidos">
+                        <div *ngIf="personalForm.get('apellidos').invalid && personalForm.get('apellidos').touched ">
+                            <mat-error *ngIf="personalForm.get('apellidos').errors['required']"> Es necesario ingresar
+                                tus
+                                apellidos</mat-error>
+                            <mat-error *ngIf="personalForm.get('apellidos').errors['maxlength']"> Los apellidos no
+                                pueden
+                                exceder 30
+                                caracteres </mat-error>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%; ">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                        <div *ngIf="personalForm.get('email').invalid && personalForm.get('email').touched ">
+                            <mat-error *ngIf="personalForm.get('email').errors['required']"> Es necesario ingresar tu
+                                email</mat-error>
+                            <mat-error *ngIf="personalForm.get('email').errors['email']"> Ingresa un email válido
+                            </mat-error>
+                        </div>
+                    </mat-form-field>
+
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Contraseña</mat-label>
+                    <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <div *ngIf="personalForm.get('password').touched && personalForm.get('password').invalid ">
+                            <mat-error *ngIf="personalForm.get('password').errors['required']">La contraseña es
+                                necesaria para
+                                continuar</mat-error>
+                        </div>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperNext>Siguiente</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step color="accent" [stepControl]="direccionForm">
+                <form [formGroup]="direccionForm">
+                    <ng-template matStepLabel>Direccion</ng-template>
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Calle</mat-label>
+                        <input matInput formControlName='calle'>
+                        <div *ngIf="direccionForm.get('calle').invalid && direccionForm.get('calle').touched ">
+                            <mat-error *ngIf="direccionForm.get('calle').errors['required']"> Es necesario ingresar la
+                                calle
+                            </mat-error>
+                            <mat-error *ngIf="direccionForm.get('calle').errors['maxlength']"> La calle no puede exceder
+                                30
+                                caracteres
+                            </mat-error>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Número exterior</mat-label>
+                        <input matInput formControlName='num_exterior'>
+                        <div
+                            *ngIf="direccionForm.get('num_exterior').invalid && direccionForm.get('num_exterior').touched ">
+                            <mat-error *ngIf="direccionForm.get('num_exterior').errors['required']"> Es necesario
+                                ingresar el número exterior </mat-error>
+                            <mat-error *ngIf="direccionForm.get('num_exterior').errors['maxlength']"> El número interior
+                                no puede exceder 11 exterior </mat-error>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Número interior</mat-label>
+                        <input matInput formControlName='num_interior'>
+                        <div
+                            *ngIf="direccionForm.get('num_interior').invalid && direccionForm.get('num_interior').touched ">
+                            <mat-error *ngIf="direccionForm.get('num_interior').errors['maxlength']"> El número interior
+                                no puede exceder 11 caracteres </mat-error>
+                        </div>
+                    </mat-form-field>
+
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Código postal</mat-label>
+                        <input matInput formControlName='codigo_postal'>
+                        <div
+                            *ngIf="direccionForm.get('codigo_postal').invalid && direccionForm.get('codigo_postal').touched ">
+                            <mat-error *ngIf="direccionForm.get('codigo_postal').errors['required']"> Es necesario
+                                ingresar el código postal </mat-error>
+                            <mat-error *ngIf="direccionForm.get('codigo_postal').errors['maxlength']"> El código postal no puede exceder 5 dígitos </mat-error>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Delegación</mat-label>
+                        <mat-select formControlName="delegacion">
+                            <mat-option value="Alvaro Obregón">Alvaro Obregón</mat-option>
+                            <mat-option value="Azcapotzalco">Azcapotzalco</mat-option>
+                            <mat-option value="Benito Juárez">Benito Juárez</mat-option>
+                            <mat-option value="Coyoacán">Coyoacán</mat-option>
+                            <mat-option value="Cuajimalpa">Cuajimalpa</mat-option>
+                            <mat-option value="Cuahutémoc">Cuahutémoc</mat-option>
+                            <mat-option value="Gustavo A. Madero">Gustavo A. Madero</mat-option>
+                            <mat-option value="Iztapalapa">Iztapalapa</mat-option>
+                            <mat-option value="Magdalena Contreras">Magdalena Contreras</mat-option>
+                            <mat-option value="Miguel Hidalgo">Miguel Hidalgo</mat-option>
+                            <mat-option value="Milpa Alta">Milpa Alta</mat-option>
+                            <mat-option value="Tláhuac">Tláhuac</mat-option>
+                            <mat-option value="Venustiano Carranza">Venustiano Carranza</mat-option>
+                            <mat-option value="Xochimilco">Xochimilco</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Anterior</button>
+                        <button mat-button matStepperNext>Siguiente</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step color="accent">
+                <ng-template matStepLabel>Finalizar</ng-template>
+                <mat-checkbox class="example-margin" (click)="negarAcepto()">He leído y acepto el aviso de privacidad.</mat-checkbox>
+                <div>
+                    <button mat-raised-button id="button" (click)="singIn()" color="primary" routerLink="/login" [disabled]="!acepto" >Registrame</button>
+                    <button mat-button matStepperPrevious>Anterior</button>
+                </div>
+            </mat-step>
+        </mat-stepper>
+    </div>
+
+
+    <div class="signupContainer">
+        <p>¿Ya tienes una cuenta?</p>
+        <a routerLink="/login">Inicia sesión</a>
+    </div>
+</form>

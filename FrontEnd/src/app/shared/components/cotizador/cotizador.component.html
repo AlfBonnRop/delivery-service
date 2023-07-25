@@ -1,0 +1,182 @@
+<mat-grid-list cols="2" rowHeight="1:1" style="height:auto;">
+    <mat-grid-tile>
+        <div style="height: 100%; width: 100%;">
+            <mat-card style=" height: 100%; width: 100%; overflow: auto;">
+                <div class="main-div">
+                    <mat-card-title style="color: #25303c; font-size: 2rem;">Cotización</mat-card-title>
+                </div>
+                <mat-card-content>
+                    <div style="height: 100%; min-height: auto; min-width: 500px;">
+                        <mat-stepper orientation="vertical" linear="false" #stepper>
+                            <mat-step state="phone" color="accent" [stepControl]="paqueteForm">
+                                <form [formGroup]="paqueteForm">
+                                    <ng-template matStepLabel>Cuentanos sobre el paquete</ng-template>
+                                    <br>
+                                    <p style="font-size: 1rem; color: #25303c;">Ingresa las dimensiones de tu paquete en
+                                        centímetros </p>
+                                    <p style="font-size: 1rem; color: #25303c;"> y el peso en kilogramos. Si el envío es
+                                        un sobre puedes</p>
+                                    <p style="font-size: 1rem; color: #25303c;"> omitir el alto y el peso.</p>
+                                    <mat-form-field style="width: 15%; margin-right: 2%;">
+                                        <mat-label>Largo</mat-label>
+                                        <input matInput formControlName="alto">
+                                    </mat-form-field>
+
+                                    <mat-form-field style="width: 15%; margin-right: 2%;">
+                                        <mat-label>Ancho</mat-label>
+                                        <input matInput formControlName="ancho">
+                                    </mat-form-field>
+
+                                    <mat-form-field style="width: 16%; margin-right: 2%;">
+                                        <mat-label>Alto</mat-label>
+                                        <input matInput formControlName="profundo">
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 15%;">
+                                        <mat-label>Peso</mat-label>
+                                        <input matInput formControlName="peso">
+                                    </mat-form-field>
+                                </form>
+                            </mat-step>
+                            <form [formGroup]="recoleccionForm">
+                                <mat-step state="phone" color="accent" [stepControl]="recoleccionForm">
+                                    <ng-template matStepLabel>Lugar y fecha de la recolección</ng-template>
+                                    <mat-form-field style="width: 40%; margin-top: 10px; margin-right: 2%;">
+                                        <mat-label>Calle</mat-label>
+                                        <input matInput formControlName="calle_recoleccion">
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 25%;">
+                                        <mat-label>No. exterior</mat-label>
+                                        <input matInput formControlName="num_exterior_recoleccion">
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field style="width: 25%; margin-top: 10px; margin-right: 17%;">
+                                        <mat-label>No. interior</mat-label>
+                                        <input matInput formControlName="num_interior_recoleccion">
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 25%; margin-top: 10px; ">
+                                        <mat-label>Código postal</mat-label>
+                                        <input matInput formControlName="codigo_postal_recoleccion">
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 40%; margin-top: 10px; margin-right: 2%;">
+                                        <mat-label>Delegación</mat-label>
+                                        <mat-select formControlName="delegacion_recoleccion">
+                                            <mat-option value="Alvaro Obregón">Alvaro Obregón</mat-option>
+                                            <mat-option value="Azcapotzalco">Azcapotzalco</mat-option>
+                                            <mat-option value="Benito Juárez">Benito Juárez</mat-option>
+                                            <mat-option value="Coyoacán">Coyoacán</mat-option>
+                                            <mat-option value="Cuajimalpa">Cuajimalpa</mat-option>
+                                            <mat-option value="Cuahutémoc">Cuahutémoc</mat-option>
+                                            <mat-option value="Gustavo A. Madero">Gustavo A. Madero</mat-option>
+                                            <mat-option value="Iztapalapa">Iztapalapa</mat-option>
+                                            <mat-option value="Magdalena Contreras">Magdalena Contreras</mat-option>
+                                            <mat-option value="Miguel Hidalgo">Miguel Hidalgo</mat-option>
+                                            <mat-option value="Milpa Alta">Milpa Alta</mat-option>
+                                            <mat-option value="Tláhuac">Tláhuac</mat-option>
+                                            <mat-option value="Venustiano Carranza">Venustiano Carranza</mat-option>
+                                            <mat-option value="Xochimilco">Xochimilco</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 25%;">
+                                        <mat-label>Fecha</mat-label>
+                                        <input matInput [matDatepicker]="picker" formControlName="fecha">
+                                        <mat-hint>MM/DD/YYYY</mat-hint>
+                                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                </mat-step>
+                            </form>
+                            <form [formGroup]="entregaForm">
+                                <mat-step state="phone" color="accent" [stepControl]="entregaForm">
+                                    <ng-template matStepLabel>Lugar de entrega</ng-template>
+                                    <mat-form-field style="width: 40%; margin-top: 10px; margin-right: 2%;">
+                                        <mat-label>Calle</mat-label>
+                                        <input matInput formControlName="calle_entrega">
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 25%;">
+                                        <mat-label>No. exterior</mat-label>
+                                        <input matInput formControlName="num_exterior_entrega">
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field style="width: 25%; margin-top: 10px; margin-right: 17%;">
+                                        <mat-label>No. interior</mat-label>
+                                        <input matInput formControlName="num_interior_entrega">
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 25%; margin-top: 10px; ">
+                                        <mat-label>Código postal</mat-label>
+                                        <input matInput formControlName="codigo_postal_entrega">
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 40%; margin-top: 10px; margin-right: 2%;">
+                                        <mat-label>Delegación</mat-label>
+                                        <mat-select formControlName="delegacion_entrega">
+                                            <mat-option value="Alvaro Obregón">Alvaro Obregón</mat-option>
+                                            <mat-option value="Azcapotzalco">Azcapotzalco</mat-option>
+                                            <mat-option value="Benito Juárez">Benito Juárez</mat-option>
+                                            <mat-option value="Coyoacán">Coyoacán</mat-option>
+                                            <mat-option value="Cuajimalpa">Cuajimalpa</mat-option>
+                                            <mat-option value="Cuahutémoc">Cuahutémoc</mat-option>
+                                            <mat-option value="Gustavo A. Madero">Gustavo A. Madero</mat-option>
+                                            <mat-option value="Iztapalapa">Iztapalapa</mat-option>
+                                            <mat-option value="Magdalena Contreras">Magdalena Contreras</mat-option>
+                                            <mat-option value="Miguel Hidalgo">Miguel Hidalgo</mat-option>
+                                            <mat-option value="Milpa Alta">Milpa Alta</mat-option>
+                                            <mat-option value="Tláhuac">Tláhuac</mat-option>
+                                            <mat-option value="Venustiano Carranza">Venustiano Carranza</mat-option>
+                                            <mat-option value="Xochimilco">Xochimilco</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <p style="font-size: 1rem; color: #25303c;">¿Quién recibirá el envío?</p>
+                                    <mat-form-field style="width: 40%; margin-top: 10px; margin-right: 2%;">
+                                        <mat-label>Nombre</mat-label>
+                                        <input matInput formControlName="nombre_entrega">
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 25%;">
+                                        <mat-label>Telefono</mat-label>
+                                        <input matInput formControlName="telefono_entrega">
+                                    </mat-form-field>
+                                </mat-step>
+                            </form>
+
+                            <form>
+                                <mat-step state="phone" color="accent">
+                                    <ng-template matStepLabel>Cotización</ng-template>
+                                    <div>
+                                        <mat-grid-list cols="2" rowHeight="1:1">
+                                            <mat-grid-tile>1</mat-grid-tile>
+                                            <mat-grid-tile>2</mat-grid-tile>
+                                        </mat-grid-list>
+                                    </div>
+                                </mat-step>
+                            </form>
+                            <form>
+                                <mat-step state="phone" color="accent">
+                                    <ng-template matStepLabel>Confirmar</ng-template>
+                                    <div class="container">
+                                        <div>
+                                            <div style="display: flex; justify-content: center; margin-top: 20px; font-size: 1.5rem;">
+                                                ¿Realizar pedido?
+                                            </div>
+                                            <div style="display: flex; justify-content: center; height: 50%;">
+                                                <button (click)="postEnvio()" mat-button style="margin-top: 20px; justify-content: center; height: 100%; width: 100%; background-color: #FF4081;">Confirmar</button>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </mat-step>
+                            </form>
+                            <!-- Icon overrides. -->
+                            <ng-template matStepperIcon="phone">
+                                <mat-icon>check_circle</mat-icon>
+                            </ng-template>
+                            <ng-template matStepperIcon="chat">
+                                <mat-icon>forum</mat-icon>
+                            </ng-template>
+                        </mat-stepper>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div id="map">aksdl</div>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -27,7 +27,7 @@ public class Envio {
     @Column(name="num_interior_recoleccion")
     private int num_interior_recoleccion;
     @Column(name="codigo_postal_recoleccion")
-    private int codigo_postal_recoleccion;
+    private String codigo_postal_recoleccion;
     @Column(name="delegacion_recoleccion")
     private String delegacion_recoleccion;
     @Column(name="calle_entrega")
@@ -37,7 +37,7 @@ public class Envio {
     @Column(name="num_interior_entrega")
     private int num_interior_entrega;
     @Column(name="codigo_postal_entrega")
-    private int codigo_postal_entrega;
+    private String codigo_postal_entrega;
     @Column(name="delegacion_entrega")
     private String delegacion_entrega;
     @Column(name="fecha")
@@ -52,6 +52,17 @@ public class Envio {
     private int id_repartidor;
     @Column(name="entregado")
     private int entregado;
+
+    @Column(name="telefono_entrega")
+    private String telefono_entrega;
+
+    public String getTelefono_entrega() {
+        return telefono_entrega;
+    }
+
+    public void setTelefono_entrega(String telefono_entrega) {
+        this.telefono_entrega = telefono_entrega;
+    }
 
     public int getId() {
         return id;
@@ -117,11 +128,11 @@ public class Envio {
         this.num_interior_recoleccion = num_interior_recoleccion;
     }
 
-    public int getCodigo_postal_recoleccion() {
+    public String getCodigo_postal_recoleccion() {
         return codigo_postal_recoleccion;
     }
 
-    public void setCodigo_postal_recoleccion(int codigo_postal_recoleccion) {
+    public void setCodigo_postal_recoleccion(String codigo_postal_recoleccion) {
         this.codigo_postal_recoleccion = codigo_postal_recoleccion;
     }
 
@@ -157,11 +168,11 @@ public class Envio {
         this.num_interior_entrega = num_interior_entrega;
     }
 
-    public int getCodigo_postal_entrega() {
+    public String getCodigo_postal_entrega() {
         return codigo_postal_entrega;
     }
 
-    public void setCodigo_postal_entrega(int codigo_postal_entrega) {
+    public void setCodigo_postal_entrega(String codigo_postal_entrega) {
         this.codigo_postal_entrega = codigo_postal_entrega;
     }
 

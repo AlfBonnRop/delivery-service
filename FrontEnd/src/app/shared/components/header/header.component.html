@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="header">
+  <a style="font-size: 50px;"  class="logo">iVoy</a>
+  <div [hidden]="enSesion()">
+  <nav class="nav-items" >
+    <a href="#" routerLink="/index" style="margin-right: 20px;">Inicio</a>
+    <a href="#" routerLink="/singin" style="margin-right: 20px;">Registrarse</a>
+    <a href="#" routerLink="/login" style="margin-right: 20px;">Iniciar Sesion</a>
+  </nav>
+</div>
+<div [hidden]="!enSesion()">
+  <nav class="nav-items" >
+    <a href="#" (click)="cerrarSesion()" routerLink="/index" style="margin-right: 20px;">Cerrar Sesion</a>
+  </nav>
+</div>
+</mat-toolbar>

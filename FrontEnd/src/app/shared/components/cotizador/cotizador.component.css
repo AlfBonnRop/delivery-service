@@ -1,0 +1,14 @@
+.body{
+  background-color: #fff;
+}
+.main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+#map { height: 100%; width: 100%; }

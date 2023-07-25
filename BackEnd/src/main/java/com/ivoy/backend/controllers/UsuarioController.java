@@ -54,6 +54,7 @@ public class UsuarioController {
 
     @RequestMapping(value = "usuario", method = RequestMethod.POST)
     public void registrarUsuario(@RequestBody Usuario u){
+        System.out.println("Si 1");
         Argon2 ar = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
         u.setPassword(ar.hash(2,1024,1,u.getPassword()));
         usrDao.registrarUsuario(u);

@@ -1,0 +1,20 @@
+export interface Envioc {
+    alto:number;
+    ancho:number;
+    profundo:number;
+    peso:number;
+    calle_recoleccion:string;
+    num_exterior_recoleccion:number;
+    num_interior_recoleccion:number;
+    codigo_postal_recoleccion:string;
+    delegacion_recoleccion:string;
+    calle_entrega:string;
+    num_exterior_entrega:number;
+    num_interior_entrega:number;
+    codigo_postal_entrega:string;
+    delegacion_entrega:string;
+    fecha:string;
+    costo:number;
+    nombre_entrega:string;
+    telefono_entrega:string
+}

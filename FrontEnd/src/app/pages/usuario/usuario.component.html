@@ -1,0 +1,57 @@
+<headeri></headeri>
+<!-- <div style="width: 100%; height: 100%;">
+<mat-drawer-container style="width: 100%; height: 100%;">
+    <mat-drawer #drawer opened="true" mode="side" style="width: 100%; height: 100%;">
+        <mat-nav-list>
+            <mat-list-item>
+                <button mat-button> <mat-icon>home</mat-icon></button>
+                <button mat-button> <mat-icon>home</mat-icon></button>
+                <button mat-button> <mat-icon>home</mat-icon></button>
+                <button mat-button> <mat-icon>home</mat-icon></button>
+                <button mat-button> <mat-icon>home</mat-icon></button>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-container>
+        <div style="text-align: center;">holaaaa</div>
+        <br>
+        holaaa
+    </mat-drawer-container>
+</mat-drawer-container>
+</div> -->
+<div [hidden]="getSesion()">
+<mat-drawer-container  class="example-container" hasBackdrop="false">
+    <mat-drawer opened="true" disableClose="true" #drawer mode="side" style="width: 10%;  background-color:#fff ;">
+        <mat-list-item >
+            <button mat-button class="btn" style="margin-top: 20px;" (click)="wrap()">  Perfil </button>
+        </mat-list-item>
+        <mat-divider style="margin-top: 20px; margin-bottom: 20px;"></mat-divider>
+        <mat-list-item >
+                 <button mat-button class="btn" [routerLink]="['/usuario/cotizar']"> Nuevo envio </button>
+        </mat-list-item>
+        <mat-divider style="margin-top: 20px; margin-bottom: 20px;"></mat-divider>
+        <mat-list-item >
+            <button mat-button class="btn" [routerLink]="['/usuario/encamino']"> Envios en camino </button>
+        </mat-list-item>
+        <mat-divider style="margin-top: 20px; margin-bottom: 20px;"></mat-divider>
+        <mat-list-item >
+            <button mat-button class="btn"> Envios entregados </button>
+        </mat-list-item>
+        <mat-divider style="margin-top: 20px; margin-bottom: 20px;"></mat-divider>
+        <div [hidden]="isAdmin()" style="height: 50%;">
+            <mat-list-item> 
+                <button mat-button [routerLink]="'/usuario/asignar'" style="width: 100%; height: 10%; text-align: left; justify-content: left;"> Asignar envios </button>
+            </mat-list-item>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <mat-card class="mi-card">
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </mat-card>
+        
+        
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

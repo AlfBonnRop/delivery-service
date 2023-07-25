@@ -1,0 +1,33 @@
+<headeri></headeri>
+<form class="form_main" action="">
+    <p class="heading">Iniciar sesión</p>
+    <div [formGroup]="form">
+        
+        <mat-form-field style="width: 100%; margin-top: 20px;">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" formControlName="email">
+             <div *ngIf="form.get('email').invalid && form.get('email').touched "> 
+                <mat-error *ngIf="form.get('email').errors['required']"> El email es necesario para continuar </mat-error>
+                <mat-error *ngIf="form.get('email').errors['email']"> Email invalido </mat-error>
+             </div> 
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%; margin-top: 20px;">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [(ngModel)]="psw" formControlName="password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <div *ngIf="form.get('password').touched && form.get('password').invalid "> 
+                <mat-error *ngIf="form.get('password').errors['required']">La contraseña es necesaria para continuar</mat-error>
+            </div>
+        </mat-form-field>
+        <button mat-raised-button id="button"color="primary" (click)="login()" [disabled]="form.invalid" >Iniciar sesión</button>
+    </div>
+    
+    <div class="signupContainer">
+        <p>¿Aún no tienes una cuenta?</p>
+        <a routerLink="/singin">Regístrate</a>
+    </div>
+</form>

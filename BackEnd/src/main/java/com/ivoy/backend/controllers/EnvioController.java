@@ -5,8 +5,7 @@ import com.ivoy.backend.models.Envio;
 import com.ivoy.backend.utils.JWTUtil;
 import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
-import org.springframework.util.AutoPopulatingList;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,6 +48,7 @@ public class EnvioController {
 
     @RequestMapping(value="envios/pendientes", method=RequestMethod.GET)
     public List<Envio> getEnviosPendientes(@RequestHeader(value="Autenticacion") String token){
+        if(!isAdmin(token)){return null;}
         if(sesionActiva(token)!=null){
             return envioDao.getEnviosPendientes();
         }else{
@@ -99,6 +99,7 @@ public class EnvioController {
                             @PathVariable String id){
         if(isAdmin(token)){
             envioDao.marcarEnvio(id);
+            System.out.println("Marcado");
         }else{
             System.out.println("Sin permisos necesarios");
         }
