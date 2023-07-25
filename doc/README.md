@@ -9,7 +9,7 @@ La estructura principal del proyecto cuenta con la siguiente estructura:
 - Backend
 - BDD
 Cada una es prácticamente una aplicación independiente a la otra, comunicandose como lo indica el siguiente diagrama:
-![Arquitectura del proyecto](/img/dia1.png)
+![Arquitectura del proyecto](/doc/img/dia1.png)
 Ya que cada parte está separada de la otra y se comunican a través de peticiones estandarizadas (REST, JPA) se tienen las siguientes ventajas:
 - Proyectos más escalables.
 - Equipos de desarrollo especializados para el mantenimiento del servicio.
@@ -46,5 +46,7 @@ Para la persistencia de los datos se utilizó una base de datos MySQL, cuya defi
 - GitHub Desktop
 
 # Caso de uso de las funcionalidades de la aplicación.
-![Caso de uso](/img/casoUso.png)
+![Caso de uso](/doc/img/casoUso.png)
+
+
 En esta version falta por implementar el repartidor como actor del sistema.
