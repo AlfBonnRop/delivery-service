@@ -47,4 +47,6 @@ Para la persistencia de los datos se utilizó una base de datos MySQL, cuya defi
 
 # Caso de uso de las funcionalidades de la aplicación.
 ![Caso de uso](/doc/img/casoUso.png)
+
+
 En esta version falta por implementar el repartidor como actor del sistema.
